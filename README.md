@@ -63,20 +63,22 @@ This website was designed and built in collaboration with **Antigravity**, a pow
 
 ## 🚀 Running the Project Locally
 
-Since the project uses entirely native static frontend code, you can run it instantly on any system without downloading npm dependencies:
+Because this project is built entirely on native web standards (HTML5, Vanilla CSS, and ES6+ JavaScript), it requires zero build steps or package installations. You can spin it up locally in seconds:
 
-### Option A: Python Server (Recommended)
-Open your terminal in the project directory and run:
-```bash
-python3 -m http.server 8000
-```
-Then navigate to `http://localhost:8000` in your web browser.
+### 1. Direct Open (Simplest)
+Simply double-click the `index.html` file in your operating system's file explorer to view the website instantly in any modern web browser.
 
-### Option B: Node Static Server
-If you have Node.js installed, you can use any static server library like `serve`:
-```bash
-npx serve ./
-```
+### 2. Local HTTP Server (Recommended)
+For optimal performance and full compliance with browser security policies (especially regarding network requests or file references), running a local server is recommended:
 
-### Option C: Direct Open
-Simply double-click the `index.html` file in your operating system's file manager to open it directly in any modern browser.
+*   **Via Python:**
+    ```bash
+    python3 -m http.server 8000
+    ```
+    Then, navigate to `http://localhost:8000` in your browser.
+
+*   **Via Node.js:**
+    ```bash
+    npx serve ./
+    ```
+    Then, navigate to the local address output in your terminal.
