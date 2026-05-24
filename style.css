@@ -443,7 +443,7 @@ a:hover {
 /* --- VIII. Cloud Infrastructure Simulator SVG (Pruned - Legacy feature removed by user) --- */
 
 
-/* --- IX. Creative Highlights (Vinyl & Visualizer) --- */
+/* --- IX. Creative Highlights (Vinyl & Visualiser) --- */
 .storyteller-deck {
     display: grid;
     grid-template-columns: 1fr;
@@ -952,7 +952,7 @@ footer {
 }
 
 
-/* --- XIV. Responsive System (Desktop Customizations) --- */
+/* --- XIV. Responsive System (Desktop Customisations) --- */
 @media (min-width: 1000px) {
     .system-status-indicator ul {
         display: flex;

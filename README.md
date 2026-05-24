@@ -8,7 +8,7 @@ The platform is designed around a premium, modern editorial light aesthetic with
 
 ## 🎨 Design & Aesthetic System
 
-The website implements a carefully curated technical design system utilizing custom variables in Vanilla CSS:
+The website implements a carefully curated technical design system utilising custom variables in Vanilla CSS:
 
 *   **Primary Canvas Background:** `#FAF8F6` (Warm Alabaster / Soft Beige) blended with a faint, structural blueprint grid pattern in Sage Green (`rgba(108, 139, 116, 0.02)`) that represents technical precision.
 *   **Typography:** Editorial headings in Obsidian Charcoal (`#1A1A1A`) and high-legibility body text in Charcoal Gray (`#333333`) using the `Outfit` and `Space Mono` Google Fonts.
@@ -52,6 +52,12 @@ The codebase is built entirely using high-performance, vanilla, standard-complia
 1.  **HTML5**: Structural elements leveraging semantic tags (nav, main, section, footer), and offline preconnect asset caching.
 2.  **CSS3**: Custom design tokens, complex bezier transformations, absolute layout grid rules, hover-triggered ambient soundwave pulse animations, and responsive media queries.
 3.  **JavaScript (ES6+)**: Custom DOM selectors, and UTC+10 clock interval mathematical operations for live show countdown tracking.
+
+---
+
+## 🤖 Collaborative AI Development
+
+This website was designed and built in collaboration with **Antigravity**, a powerful agentic AI coding assistant developed by the Google DeepMind team. Antigravity assisted in translating architectural requirements, implementing the cohesive design system in Vanilla CSS, orchestrating the interactive UTC+10 broadcast countdown components, and refining the user experience.
 
 ---
 

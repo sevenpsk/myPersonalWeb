@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
             org: "TMG (The Mall Group) | Bangkok, Thailand",
             bullets: [
                 "Managed cloud infrastructure and omni-channel support for one of Thailand's largest retail conglomerates.",
-                "Streamlined application development and deployment pipelines to maximize cloud platform capabilities and deliver highly effective, scalable solutions via robust CI/CD pipelines.",
+                "Streamlined application development and deployment pipelines to maximise cloud platform capabilities and deliver highly effective, scalable solutions via robust CI/CD pipelines.",
                 "Engineered automated alerting systems to rapidly detect anomalies, ensuring platform reliability and security.",
                 "Monitored and optimised cloud platform costs by developing automation scripts, enhancing project-level financial visibility and reporting accuracy.",
                 "Managed the end-to-end design, testing, and implementation of native and hybrid cloud applications alongside cross-functional teams.",
