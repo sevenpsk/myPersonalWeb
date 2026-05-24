@@ -2,5 +2,7 @@
 
 # Firebase deployment files
 .firebase/
+.firebaserc
 *-debug.log
 .runtimeconfig.json
+.firebase.json
