@@ -1,1 +1,6 @@
 /.DS_Store
+
+# Firebase deployment files
+.firebase/
+*-debug.log
+.runtimeconfig.json

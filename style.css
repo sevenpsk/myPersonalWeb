@@ -922,6 +922,7 @@ a:hover {
 /* Individual Platform Highlights */
 .social-card.email:hover::before { background-color: #EA4335; }
 .social-card.linkedin:hover::before { background-color: #0A66C2; }
+.social-card.github:hover::before { background-color: #24292F; }
 .social-card.youtube:hover::before { background-color: #FF0000; }
 .social-card.tiktok:hover::before { background-color: #000000; }
 .social-card.instagram:hover::before { background-color: #E1306C; }
@@ -929,6 +930,7 @@ a:hover {
 
 .social-card.email:hover h3 { color: #EA4335; }
 .social-card.linkedin:hover h3 { color: #0A66C2; }
+.social-card.github:hover h3 { color: #24292F; }
 .social-card.youtube:hover h3 { color: #FF0000; }
 .social-card.tiktok:hover h3 { color: #1A1A1A; }
 .social-card.instagram:hover h3 { color: #E1306C; }
