@@ -216,4 +216,44 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateBroadcastTimer, 60000);
 
 
+    /* ==========================================
+       4. Dynamic Secure Email Decoder
+       ========================================== */
+    const emailLink = document.querySelector('.secure-email-link');
+    const emailText = document.querySelector('.secure-email-text');
+
+    if (emailLink && emailText) {
+        let isDecoded = false;
+
+        function getDecodedEmail() {
+            const encoded = emailLink.getAttribute('data-encoded-email');
+            try {
+                return atob(encoded);
+            } catch (e) {
+                console.error("Failed to decode email", e);
+                return "pongsakorn.y@outlook.com"; // Safe local fallback
+            }
+        }
+
+        function handleEmailReveal() {
+            if (!isDecoded) {
+                const decodedEmail = getDecodedEmail();
+                emailText.textContent = decodedEmail;
+                emailLink.href = `mailto:${decodedEmail}`;
+                isDecoded = true;
+            }
+        }
+
+        // Decode on hover for desktop users
+        emailLink.addEventListener('mouseenter', handleEmailReveal);
+
+        // Decode on focus for keyboard accessibility
+        emailLink.addEventListener('focus', handleEmailReveal);
+
+        // Decode and trigger mailto on click for touch screen devices
+        emailLink.addEventListener('click', (e) => {
+            handleEmailReveal();
+        });
+    }
+
 });
