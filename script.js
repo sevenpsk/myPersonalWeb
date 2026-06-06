@@ -1,27 +1,111 @@
 /**
  * script.js
  * Drives the interactive elements for Seven Yuenyang's Portfolio.
- * Manages dynamic scroll tracking (5 navigation items), live radio broadcast countdown (UTC+10),
- * audio streaming simulations, and consolidated chronological timeline rendering.
+ * Manages dynamic scroll tracking (5 navigation items) via IntersectionObserver,
+ * live radio broadcast countdown (UTC+10), audio streaming simulations, and
+ * chronological timeline rendering from a consolidated data set.
  */
+
+/* ==========================================
+   0. Timeline Data
+   ========================================== */
+const timelineData = [
+    {
+        date: "Oct 2024 - Present",
+        role: "Graduate Enterprise Architect Officer",
+        org: "Department of Transport and Main Roads | Queensland, Australia",
+        bullets: [
+            "Secured a position through the Queensland Government Digital Graduate Program to work in the Strategy and Architecture team within the IT Branch.",
+            "Rotated between Solution Architecture and Enterprise Architecture teams to gain a comprehensive understanding of government ICT governance, assurance processes, and strategic frameworks.",
+            "Provide architectural advice and guidance to internal customers, ensuring solution designs align with enterprise architecture plans and stringent government security requirements.",
+            "Navigate complex governance workflows and assurance processes unique to large-scale public sector environments to ensure project compliance.",
+            "Applied EA principles and frameworks specific to TMR to support long-term digital transformation and infrastructure planning.",
+            "Collaborate with cross-functional branches to bridge the gap between high-level enterprise strategy and practical solution design.",
+            "Engage in continuous professional development through the Digital Graduate Program, mastering tools and methodologies such as TOGAF and the EA Repository (OrbusInfinity).",
+            "<strong>Achievement (Streamlined EA Operations):</strong> Played a key role in the migration of the Enterprise Architecture repository from iServer to OrbusInfinity, managing end-to-end data cleansing, migration, and stakeholder communication.",
+            "<strong>Achievement (Modernised Information Sharing):</strong> Led the migration of internal SharePoint on-premises data to SharePoint Online, designing the 'ICT Architecture Hub' to centralise and improve data accessibility for architects across the Department."
+        ]
+    },
+    {
+        date: "Jan 2025 - Present",
+        role: "Radio Program Host & Storyteller",
+        org: "Sawasdee Australia Thai Radio (4EB FM 98.1) | Queensland, Australia",
+        bullets: [
+            "Producing and hosting weekly live FM broadcasts in Queensland targeting the Thai-Australian community.",
+            "Curating content on social systems, cross-cultural storytelling, and artist spotlights.",
+            "Bridging cultural gaps by translating complex technical narratives into friendly local conversations.",
+            "Managing social media connectivity and content campaigns across TikTok, Instagram, and Facebook."
+        ]
+    },
+    {
+        date: "Sep 2023 - Jul 2024",
+        role: "IT Service Desk Analyst",
+        org: "Just Group (Premier Retail) | Melbourne, VIC, Australia",
+        bullets: [
+            "Delivered 24/7 remote and in-person IT support within a 15-member team, acting as the primary technical liaison for corporate and retail users across 7 major retail brands (AUS, NZ, SG, UK).",
+            "Resolved technical issues for Store, Office, and Distribution Centre staff in a fast-paced environment, leveraging a strong customer service mindset to ensure accurate, high-quality, and timely incident responses.",
+            "Actively bridged the gap between operations and IT by gathering frontline feedback from end-users and communicating actionable insights to the Systems team to drive continuous process improvements.",
+            "Navigated complex IT structures to accurately triage, routing complex technical issues to the correct specialised IT support teams to ensure timely and successful resolutions.",
+            "<strong>Achievement (Script Automation):</strong> Went above and beyond standard duties by developing automation scripts using Python and PowerShell, and optimising SQL queries, resulting in a significant improvement in the team's overall productivity."
+        ]
+    },
+    {
+        date: "Aug 2022 - Oct 2022",
+        role: "Business Analyst Intern",
+        org: "Thrive Refugee Enterprise | Melbourne, VIC, Australia",
+        bullets: [
+            "Provided end-to-end support to SME owners seeking expansion, developing Shopify websites to establish online presence and wholesale channels.",
+            "Analysed client requirements and constraints to deliver sustainable solutions, leveraging existing Shopify subscriptions and free platforms (Google Classroom) to eliminate technical debt and minimise maintenance post-handover.",
+            "<strong>Achievement:</strong> Successfully launched online platforms and business strategies on time and within budget, exceeding expectations of clients, advisors, and unit lecturers."
+        ]
+    },
+    {
+        date: "Dec 2020 - Apr 2022",
+        role: "Cloud Engineer (Omni-channel Support Engineer)",
+        org: "TMG (The Mall Group) | Bangkok, Thailand",
+        bullets: [
+            "Managed cloud infrastructure and omni-channel support for one of Thailand's largest retail conglomerates.",
+            "Streamlined application development and deployment pipelines to maximise cloud platform capabilities and deliver highly effective, scalable solutions via robust CI/CD pipelines.",
+            "Engineered automated alerting systems to rapidly detect anomalies, ensuring platform reliability and security.",
+            "Monitored and optimised cloud platform costs by developing automation scripts, enhancing project-level financial visibility and reporting accuracy.",
+            "Managed the end-to-end design, testing, and implementation of native and hybrid cloud applications alongside cross-functional teams.",
+            "<strong>Achievement:</strong> Slashed external consultancy costs and accelerated incident response times by bringing general infrastructure support and resolution in-house.",
+            "<strong>Achievement:</strong> Uplifted system security and operational efficiency by integrating best-practice access management into the development lifecycle."
+        ]
+    },
+    {
+        date: "Aug 2016 - Dec 2018",
+        role: "System Engineer (Associate Endpoint Management Engineer)",
+        org: "Kasikorn Business-Technology Group (KBTG) | Bangkok, Thailand",
+        bullets: [
+            "Modernised enterprise digital workplaces by driving a large-scale migration from legacy infrastructure to Microsoft 365, alongside managing and supporting cloud environments.",
+            "Executed a large-scale enterprise migration of on-premise email and workflow applications from IBM Notes to Microsoft 365, collaborating closely with cross-functional stakeholders.",
+            "Key contributor to the adoption of cloud platforms, significantly enhancing the performance, scalability, and efficiency of user-facing applications.",
+            "Partnered with business leaders to design, architect, and deploy diverse technology solutions across Microsoft 365 and AWS environments.",
+            "Delivered responsive Tier-2 technical support, rapidly troubleshooting and resolving complex system incidents throughout all phases of the M365 migration.",
+            "<strong>Achievement:</strong> Honoured with the company's 'High Performer Award' for two consecutive years, recognised for consistent project excellence, hard work, and outstanding technical delivery."
+        ]
+    }
+];
 
 document.addEventListener('DOMContentLoaded', () => {
 
     /* ==========================================
-       1. Navigation Scroll Tracking
+       1. Navigation Scroll Tracking (IntersectionObserver)
        ========================================== */
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.canvas-section');
 
-    function trackNavigationScroll() {
-        const scrollPosition = window.scrollY;
+    const observerOptions = {
+        root: null,
+        rootMargin: '-40% 0px -45% 0px', // Sweet spot in the middle of the viewport
+        threshold: 0
+    };
 
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120; // Offset for stick-nav clearance
-            const sectionHeight = section.offsetHeight;
-            const sectionId = section.getAttribute('id');
-
-            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href') === `#${sectionId}`) {
@@ -30,94 +114,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-    }
+    }, observerOptions);
 
-    window.addEventListener('scroll', trackNavigationScroll);
+    sections.forEach(section => observer.observe(section));
 
 
     /* ==========================================
-       2. Timeline Data & Rendering Logic
+       2. Timeline Rendering Logic
        ========================================== */
     const timelineBox = document.getElementById('interactive-timeline-box');
-
-    const timelineData = [
-        {
-            date: "Oct 2024 - Present",
-            role: "Graduate Enterprise Architect Officer",
-            org: "Department of Transport and Main Roads | Queensland, Australia",
-            bullets: [
-                "Secured a position through the Queensland Government Digital Graduate Program to work in the Strategy and Architecture team within the IT Branch.",
-                "Rotated between Solution Architecture and Enterprise Architecture teams to gain a comprehensive understanding of government ICT governance, assurance processes, and strategic frameworks.",
-                "Provide architectural advice and guidance to internal customers, ensuring solution designs align with enterprise architecture plans and stringent government security requirements.",
-                "Navigate complex governance workflows and assurance processes unique to large-scale public sector environments to ensure project compliance.",
-                "Applied EA principles and frameworks specific to TMR to support long-term digital transformation and infrastructure planning.",
-                "Collaborate with cross-functional branches to bridge the gap between high-level enterprise strategy and practical solution design.",
-                "Engage in continuous professional development through the Digital Graduate Program, mastering tools and methodologies such as TOGAF and the EA Repository (OrbusInfinity).",
-                "<strong>Achievement (Streamlined EA Operations):</strong> Played a key role in the migration of the Enterprise Architecture repository from iServer to OrbusInfinity, managing end-to-end data cleansing, migration, and stakeholder communication.",
-                "<strong>Achievement (Modernised Information Sharing):</strong> Led the migration of internal SharePoint on-premises data to SharePoint Online, designing the 'ICT Architecture Hub' to centralise and improve data accessibility for architects across the Department."
-            ]
-        },
-        {
-            date: "2024 - Present",
-            role: "Radio Program Host & Storyteller",
-            org: "Sawasdee Australia Thai Radio (4EB FM 98.1) | Queensland, Australia",
-            bullets: [
-                "Producing and hosting weekly live FM broadcasts in Queensland targeting the Thai-Australian community.",
-                "Curating content on social systems, cross-cultural storytelling, and artist spotlights.",
-                "Bridging cultural gaps by translating complex technical narratives into friendly local conversations.",
-                "Managing social media connectivity and content campaigns across TikTok, Instagram, and Facebook."
-            ]
-        },
-        {
-            date: "Sep 2023 - Jul 2024",
-            role: "IT Service Desk Analyst",
-            org: "Just Group (Premier Retail) | Melbourne, VIC, Australia",
-            bullets: [
-                "Delivered 24/7 remote and in-person IT support within a 15-member team, acting as the primary technical liaison for corporate and retail users across 7 major retail brands (AUS, NZ, SG, UK).",
-                "Resolved technical issues for Store, Office, and Distribution Centre staff in a fast-paced environment, leveraging a strong customer service mindset to ensure accurate, high-quality, and timely incident responses.",
-                "Actively bridged the gap between operations and IT by gathering frontline feedback from end-users and communicating actionable insights to the Systems team to drive continuous process improvements.",
-                "Navigated complex IT structures to accurately triage, routing complex technical issues to the correct specialised IT support teams to ensure timely and successful resolutions.",
-                "<strong>Achievement (Script Automation):</strong> Went above and beyond standard duties by developing automation scripts using Python and PowerShell, and optimising SQL queries, resulting in a significant improvement in the team's overall productivity."
-            ]
-        },
-        {
-            date: "Aug 2022 - Oct 2022",
-            role: "Business Analyst Intern",
-            org: "Thrive Refugee Enterprise | Melbourne, VIC, Australia",
-            bullets: [
-                "Provided end-to-end support to SME owners seeking expansion, developing Shopify websites to establish online presence and wholesale channels.",
-                "Analysed client requirements and constraints to deliver sustainable solutions, leveraging existing Shopify subscriptions and free platforms (Google Classroom) to eliminate technical debt and minimise maintenance post-handover.",
-                "<strong>Achievement:</strong> Successfully launched online platforms and business strategies on time and within budget, exceeding expectations of clients, advisors, and unit lecturers."
-            ]
-        },
-        {
-            date: "Dec 2020 - Apr 2022",
-            role: "Cloud Engineer (Omni-channel Support Engineer)",
-            org: "TMG (The Mall Group) | Bangkok, Thailand",
-            bullets: [
-                "Managed cloud infrastructure and omni-channel support for one of Thailand's largest retail conglomerates.",
-                "Streamlined application development and deployment pipelines to maximise cloud platform capabilities and deliver highly effective, scalable solutions via robust CI/CD pipelines.",
-                "Engineered automated alerting systems to rapidly detect anomalies, ensuring platform reliability and security.",
-                "Monitored and optimised cloud platform costs by developing automation scripts, enhancing project-level financial visibility and reporting accuracy.",
-                "Managed the end-to-end design, testing, and implementation of native and hybrid cloud applications alongside cross-functional teams.",
-                "<strong>Achievement:</strong> Slashed external consultancy costs and accelerated incident response times by bringing general infrastructure support and resolution in-house.",
-                "<strong>Achievement:</strong> Uplifted system security and operational efficiency by integrating best-practice access management into the development lifecycle."
-            ]
-        },
-        {
-            date: "Aug 2016 - Dec 2018",
-            role: "System Engineer (Associate Endpoint Management Engineer)",
-            org: "Kasikorn Business-Technology Group (KBTG) | Bangkok, Thailand",
-            bullets: [
-                "Modernised enterprise digital workplaces by driving a large-scale migration from legacy infrastructure to Microsoft 365, alongside managing and supporting cloud environments.",
-                "Executed a large-scale enterprise migration of on-premise email and workflow applications from IBM Notes to Microsoft 365, collaborating closely with cross-functional stakeholders.",
-                "Key contributor to the adoption of cloud platforms, significantly enhancing the performance, scalability, and efficiency of user-facing applications.",
-                "Partnered with business leaders to design, architect, and deploy diverse technology solutions across Microsoft 365 and AWS environments.",
-                "Delivered responsive Tier-2 technical support, rapidly troubleshooting and resolving complex system incidents throughout all phases of the M365 migration.",
-                "<strong>Achievement:</strong> Honoured with the company's 'High Performer Award' for two consecutive years, recognised for consistent project excellence, hard work, and outstanding technical delivery."
-            ]
-        }
-    ];
 
     function renderTimeline() {
         if (!timelineBox) return;

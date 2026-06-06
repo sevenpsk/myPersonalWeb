@@ -16,7 +16,7 @@
 <body>
 
     <!-- Unified Header Navigation Bar -->
-    <nav class="system-status-indicator">
+    <nav class="navbar">
         <div class="nav-brand">
             <span class="brand-dot"></span>
             <span>SEVEN.YUENYANG</span>
@@ -49,13 +49,13 @@
                             <li>Weekly Radio Broadcast Host on 4EB FM 98.1</li>
                         </ul>
                         <div class="btn-group">
-                            <a href="https://drive.google.com/file/d/1zXHzR03Z9RqI_l0_jWO2JbRfTJnn3ZA_/view?usp=sharing" class="btn btn-primary"target="_blank" rel="noopener noreferrer">Systems Spec Sheet</a>
+                            <a href="https://drive.google.com/file/d/1zXHzR03Z9RqI_l0_jWO2JbRfTJnn3ZA_/view?usp=sharing" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Systems Spec Sheet (Resume)</a>
                         </div>
                     </div>
                     
                     <div class="hero-visual">
                         <!-- Blueprint Grid Compass Visual Decoration -->
-                        <svg width="250" height="250" viewBox="0 0 100 100" style="opacity: 0.12;">
+                        <svg width="250" height="250" viewBox="0 0 100 100">
                             <circle cx="50" cy="50" r="45" fill="none" stroke="var(--accent-color)" stroke-width="0.5" />
                             <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent-color)" stroke-width="0.5" stroke-dasharray="2 2" />
                             <line x1="50" y1="0" x2="50" y2="100" stroke="var(--accent-color)" stroke-width="0.5" />
@@ -68,7 +68,7 @@
         </section>
 
         <!-- 2. Integrated Profile Summary Section -->
-        <section id="profile" class="canvas-section" style="background-color: rgba(108, 139, 116, 0.01);">
+        <section id="profile" class="canvas-section">
             <div class="content-wrapper">
                 <div class="section-header">
                     <span class="section-tag">Executive Summary</span>
@@ -84,24 +84,25 @@
                             Beyond my technical expertise, I am a <strong>"professional problem-solver and part-time storyteller"</strong> who balances spreadsheets and storyboards to bring extra fun to the everyday. I proudly maintain a dual professional identity, balancing my technical role as an Enterprise Architect with my creative outlet as host of the Sawasdee Australia Thai Radio show in Queensland.
                         </p>
                     </div>
-
                     <div class="profile-side-stats">
                         <div class="side-stat-item">
                             <h3>AWS Solutions Architect</h3>
                             <p>Associate Level (2024)</p>
-                            <span style="font-family: var(--font-code); font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 2px;">f82a85d4bcd94e92ab7e6d15fa53efa5</span>
+                            <span class="stat-credential">f82a85d4bcd94e92ab7e6d15fa53efa5</span>
                         </div>
                         <div class="side-stat-item">
                             <h3>Azure Fundamentals</h3>
                             <p>Microsoft Certified (2024)</p>
-                            <span style="font-family: var(--font-code); font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 2px;">41068CE4E3A10820</span>
+                            <span class="stat-credential">41068CE4E3A10820</span>
                         </div>
                         <div class="side-stat-item">
                             <h3>AWS Cloud Practitioner</h3>
                             <p>Cloud Practitioner (2022)</p>
-                            <span style="font-family: var(--font-code); font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 2px;">NTCPF151YNF4QWGE</span>
+                            <span class="stat-credential">NTCPF151YNF4QWGE</span>
                         </div>
                     </div>
+
+                    
                 </div>
 
                 <!-- Technical Achievement Metrics Grid -->
@@ -112,14 +113,14 @@
                         <div class="metric-desc">Specialising in Enterprise and Solution Architecture within public & private sectors.</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-num">10k+</div>
+                        <div class="metric-num">30k+</div>
                         <div class="metric-label">M365 Users Migrated</div>
                         <div class="metric-desc">Successfully migrated endpoint mail & apps from IBM Notes to M365 at KBTG.</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-num">2x</div>
                         <div class="metric-label">High Performer Awards</div>
-                        <div class="metric-desc">Honoured consecutively for consistent project excellence and cloud delivery at KBTG.</div>
+                        <div class="metric-desc">Honoured consecutively for consistent project excellence and platform delivery at KBTG.</div>
                     </div>
                     <div class="metric-card">
                         <div class="metric-num">3x</div>
@@ -132,7 +133,7 @@
                 <div class="education-cert-grid">
                     
                     <div class="info-panel">
-                        <h3>Higher Education</h3>
+                        <h3>Education</h3>
                         <ul class="info-list">
                             <li class="info-item">
                                 <h4>Master of Business Information Systems (Graduated 2023)</h4>
@@ -167,7 +168,7 @@
         </section>
 
         <!-- 4. Mode B Section: Creative & Broadcast Spotlight -->
-        <section id="creative" class="canvas-section" style="background-color: rgba(255, 142, 60, 0.015);">
+        <section id="creative" class="canvas-section">
             <div class="content-wrapper">
                 <div class="section-header">
                     <span class="section-tag">Broadcast Studio</span>
@@ -184,7 +185,7 @@
                                 <span id="broadcast-status-text">OFF AIR</span>
                             </div>
                             <h3>4EB FM 98.1 Broadcast Tracker</h3>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            <p class="panel-desc">
                                 Broadcasting every Thursday from 6:00 PM to 7:00 PM QLD local time (AEST) representing the vibrant Thai-Australian community in Brisbane.
                             </p>
                         </div>
@@ -194,7 +195,7 @@
                                 <div class="time-unit"><span id="hours">00</span><span>hours</span></div>
                                 <div class="time-unit"><span id="minutes">00</span><span>minutes</span></div>
                             </div>
-                            <a href="https://www.4eb.org.au" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="width: 100%;">
+                            <a href="https://www.4eb.org.au" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full-width">
                                 Visit Station Website
                             </a>
                         </div>
@@ -203,9 +204,9 @@
                     <!-- On-Demand Show Hub Card -->
                     <div class="media-panel archive-panel">
                         <div>
-                            <span class="section-tag" style="color: var(--accent-secondary);">Show Vault & On-Demand</span>
+                            <span class="section-tag tag-secondary">Show Vault & On-Demand</span>
                             <h3>Sawasdee Australia Archive</h3>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem; color: var(--text-muted);">
+                            <p class="panel-desc">
                                 Missed a live broadcast? Catch up on previous episodes, community interviews, and cross-cultural highlights from anywhere in the world.
                             </p>
                             
@@ -231,11 +232,11 @@
                                 <span class="show-tag-capsule">Music & Culture</span>
                             </div>
                         </div>
-                        <div class="btn-group" style="margin-top: 1.5rem;">
-                            <a href="https://www.4eb.org.au/shows/sawasdee-australia-thai-radio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary archive-btn" style="flex: 1; min-width: 180px; text-align: center;">
+                        <div class="btn-group">
+                            <a href="https://www.4eb.org.au/shows/sawasdee-australia-thai-radio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary archive-btn">
                                 Explore Previous Shows <span class="arrow-indicator">➔</span>
                             </a>
-                            <a href="https://www.facebook.com/sawasdeeausthairadioinqld" target="_blank" rel="noopener noreferrer" class="btn btn-secondary facebook-show-btn" style="flex: 1; min-width: 180px; text-align: center; gap: 8px;">
+                            <a href="https://www.facebook.com/sawasdeeausthairadioinqld" target="_blank" rel="noopener noreferrer" class="btn btn-secondary facebook-show-btn">
                                 <span class="fb-icon">👥</span> Facebook Page
                             </a>
                         </div>
@@ -248,7 +249,7 @@
         <!-- 5. Dual-Perspective Interactive Timeline -->
         <section id="timeline" class="canvas-section">
             <div class="content-wrapper">
-                <div class="section-header" style="text-align: center;">
+                <div class="section-header center-align">
                     <span class="section-tag">Interactive Journey</span>
                     <h2>Career & Creative Timeline</h2>
                 </div>
@@ -262,9 +263,9 @@
         </section>
 
         <!-- 6. Connect Hub Section -->
-        <section id="connect" class="canvas-section" style="background-color: rgba(108, 139, 116, 0.015);">
+        <section id="connect" class="canvas-section">
             <div class="content-wrapper">
-                <div class="section-header" style="text-align: center;">
+                <div class="section-header center-align">
                     <span class="section-tag">Social & Professional Network</span>
                     <h2>Connect Hub</h2>
                 </div>
@@ -328,7 +329,7 @@
         <!-- Footer -->
         <footer>
             <div class="content-wrapper">
-                <p>&copy; 2026 Seven Yuenyang. All systems operational. Connected at UTC+10.</p>
+                <p>&copy; 2026 Seven Yuenyang. Connected at UTC+10.</p>
             </div>
         </footer>
 
