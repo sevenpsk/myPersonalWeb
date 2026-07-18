@@ -973,6 +973,24 @@ a:hover { color: var(--gold); }
     margin-bottom: 0;
 }
 
+.broadcast-header-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-top: 0.8rem;
+}
+
+.broadcast-logo {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    border-radius: 14px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.05);
+    padding: 4px;
+    box-shadow: 0 0 12px rgba(200,134,42,0.15);
+}
+
 /* OLED-style broadcast status chip */
 .broadcast-status-badge {
     align-self: flex-start;
