@@ -4,11 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seven Yuenyang | Enterprise Architect & Broadcaster</title>
+    <title>Seven Yuenyang | Enterprise Architect &amp; Broadcaster</title>
+    <meta name="description" content="Seven Yuenyang — Enterprise &amp; Solution Architect specialising in cloud infrastructure and digital transformation, and weekly radio host on 4EB FM 98.1 Brisbane.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,50 +17,142 @@
 <body>
 
     <!-- Unified Header Navigation Bar -->
-    <nav class="navbar">
+    <nav class="navbar" id="main-nav" aria-label="Main navigation">
         <div class="nav-brand">
-            <span class="brand-dot"></span>
+            <span class="brand-dot" aria-hidden="true"></span>
             <span>SEVEN.YUENYANG</span>
         </div>
 
-        <ul class="nav-menu">
-            <li><a href="#intro" class="nav-link active">ID</a></li>
-            <li><a href="#profile" class="nav-link">PROFILE</a></li>
-            <li><a href="#creative" class="nav-link">CREATIVE</a></li>
-            <li><a href="#timeline" class="nav-link">TIMELINE</a></li>
-            <li><a href="#connect" class="nav-link">CONNECT</a></li>
+        <ul class="nav-menu" role="list">
+            <li><a href="#intro"    class="nav-link active" id="nav-id">ID</a></li>
+            <li><a href="#profile"  class="nav-link" id="nav-profile">PROFILE</a></li>
+            <li><a href="#creative" class="nav-link" id="nav-creative">CREATIVE</a></li>
+            <li><a href="#timeline" class="nav-link" id="nav-timeline">TIMELINE</a></li>
+            <li><a href="#connect"  class="nav-link" id="nav-connect">CONNECT</a></li>
         </ul>
     </nav>
 
     <!-- Main Content Canvas -->
     <main class="data-flow-canvas">
 
-        <!-- 1. Hero / Intro Section (Prioritising the Architect side) -->
-        <section id="intro" class="canvas-section">
+        <!-- ============================================================
+             1. Hero / Intro Section — Blueprint Schematic
+             ============================================================ -->
+        <section id="intro" class="canvas-section" aria-labelledby="hero-title">
             <div class="content-wrapper">
-                
+
                 <div class="hero-layout">
                     <div class="hero-content">
-                        <span class="subtitle">Enterprise & Solution Architect</span>
-                        <h1>Seven Yuenyang</h1>
+                        <span class="subtitle">Enterprise &amp; Solution Architect</span>
+                        <h1 id="hero-title">Seven Yuenyang</h1>
                         <h2>Bridging the gap between high-level business strategy and robust, scalable cloud infrastructure.</h2>
-                        <ul class="hero-details-list">
+                        <ul class="hero-details-list" role="list">
                             <li>Based in QLD, Australia</li>
-                            <li>6+ Years of IT Infrastructure & Systems Experience</li>
+                            <li>6+ Years of IT Infrastructure &amp; Systems Experience</li>
                             <li>Weekly Radio Broadcast Host on 4EB FM 98.1</li>
                         </ul>
                         <div class="btn-group">
-                            <a href="https://drive.google.com/file/d/1zXHzR03Z9RqI_l0_jWO2JbRfTJnn3ZA_/view?usp=sharing" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Systems Spec Sheet (Resume)</a>
+                            <a href="https://drive.google.com/file/d/1zXHzR03Z9RqI_l0_jWO2JbRfTJnn3ZA_/view?usp=sharing"
+                               class="btn btn-primary" target="_blank" rel="noopener noreferrer"
+                               id="btn-resume">
+                                Systems Spec Sheet (Resume)
+                            </a>
                         </div>
                     </div>
-                    
-                    <div class="hero-visual">
-                        <!-- Blueprint Grid Compass Visual Decoration -->
-                        <svg width="250" height="250" viewBox="0 0 100 100">
-                            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--accent-color)" stroke-width="0.5" />
-                            <circle cx="50" cy="50" r="30" fill="none" stroke="var(--accent-color)" stroke-width="0.5" stroke-dasharray="2 2" />
-                            <line x1="50" y1="0" x2="50" y2="100" stroke="var(--accent-color)" stroke-width="0.5" />
-                            <line x1="0" y1="50" x2="100" y2="50" stroke="var(--accent-color)" stroke-width="0.5" />
+
+                    <!-- 3D Blueprint / Data-Centre Schematic SVG -->
+                    <div class="hero-visual" aria-hidden="true">
+                        <svg class="hero-blueprint-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#F0C040" stop-opacity="0.9"/>
+                                    <stop offset="100%" stop-color="#C8862A" stop-opacity="0"/>
+                                </radialGradient>
+                                <filter id="softGlow">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                            </defs>
+
+                            <!-- Grid lines -->
+                            <g stroke="rgba(200,134,42,0.12)" stroke-width="0.8">
+                                <line x1="0" y1="100" x2="400" y2="100"/>
+                                <line x1="0" y1="200" x2="400" y2="200"/>
+                                <line x1="0" y1="300" x2="400" y2="300"/>
+                                <line x1="100" y1="0" x2="100" y2="400"/>
+                                <line x1="200" y1="0" x2="200" y2="400"/>
+                                <line x1="300" y1="0" x2="300" y2="400"/>
+                            </g>
+
+                            <!-- Outer spinning ring -->
+                            <g class="blueprint-ring-outer">
+                                <circle cx="200" cy="200" r="170" fill="none" stroke="rgba(200,134,42,0.25)" stroke-width="1" stroke-dasharray="8 6"/>
+                                <circle cx="200" cy="200" r="165" fill="none" stroke="rgba(240,192,64,0.08)" stroke-width="0.5"/>
+                            </g>
+
+                            <!-- Mid spinning ring -->
+                            <g class="blueprint-ring-mid">
+                                <circle cx="200" cy="200" r="120" fill="none" stroke="rgba(200,134,42,0.20)" stroke-width="1" stroke-dasharray="4 8"/>
+                            </g>
+
+                            <!-- Static inner circles -->
+                            <circle cx="200" cy="200" r="80" fill="none" stroke="rgba(200,134,42,0.30)" stroke-width="1"/>
+                            <circle cx="200" cy="200" r="40" fill="none" stroke="rgba(240,192,64,0.25)" stroke-width="0.8"/>
+
+                            <!-- Crosshairs -->
+                            <g stroke="rgba(200,134,42,0.20)" stroke-width="0.8">
+                                <line x1="200" y1="20" x2="200" y2="380"/>
+                                <line x1="20"  y1="200" x2="380" y2="200"/>
+                                <line x1="80"  y1="80"  x2="320" y2="320"/>
+                                <line x1="320" y1="80"  x2="80"  y2="320"/>
+                            </g>
+
+                            <!-- Data-centre rack silhouettes (schematic boxes) -->
+                            <g fill="none" stroke="rgba(200,134,42,0.35)" stroke-width="1">
+                                <rect x="130" y="152" width="50" height="96" rx="3"/>
+                                <rect x="220" y="152" width="50" height="96" rx="3"/>
+                                <!-- Rack unit lines -->
+                                <line x1="130" y1="168" x2="180" y2="168"/>
+                                <line x1="130" y1="184" x2="180" y2="184"/>
+                                <line x1="130" y1="200" x2="180" y2="200"/>
+                                <line x1="130" y1="216" x2="180" y2="216"/>
+                                <line x1="130" y1="232" x2="180" y2="232"/>
+                                <line x1="220" y1="168" x2="270" y2="168"/>
+                                <line x1="220" y1="184" x2="270" y2="184"/>
+                                <line x1="220" y1="200" x2="270" y2="200"/>
+                                <line x1="220" y1="216" x2="270" y2="216"/>
+                                <line x1="220" y1="232" x2="270" y2="232"/>
+                            </g>
+
+                            <!-- Connection lines between racks -->
+                            <g stroke="rgba(240,192,64,0.4)" stroke-width="0.8" stroke-dasharray="3 3">
+                                <line x1="180" y1="200" x2="220" y2="200"/>
+                                <line x1="155" y1="152" x2="155" y2="120"/>
+                                <line x1="245" y1="152" x2="245" y2="120"/>
+                                <line x1="155" y1="120" x2="245" y2="120"/>
+                            </g>
+
+                            <!-- Glowing pulse nodes -->
+                            <g filter="url(#softGlow)">
+                                <circle class="blueprint-node" cx="200" cy="200" r="5" fill="#F0C040" opacity="0.9"/>
+                                <circle class="blueprint-node" cx="155" cy="120" r="4" fill="#C8862A" opacity="0.8"/>
+                                <circle class="blueprint-node" cx="245" cy="120" r="4" fill="#C8862A" opacity="0.8"/>
+                                <circle class="blueprint-node" cx="30"  cy="30"  r="3" fill="rgba(42,143,212,0.8)"/>
+                                <circle class="blueprint-node" cx="370" cy="370" r="3" fill="rgba(42,143,212,0.8)"/>
+                            </g>
+
+                            <!-- Coordinate markers -->
+                            <g font-family="'Space Mono', monospace" font-size="7" fill="rgba(200,134,42,0.5)">
+                                <text x="8"   y="14">X:0000</text>
+                                <text x="330" y="14">Y:0400</text>
+                                <text x="8"   y="396">Z:0400</text>
+                                <text x="330" y="396">Ω:200</text>
+                            </g>
+
+                            <!-- Arc measurement indicators -->
+                            <g fill="none" stroke="rgba(42,143,212,0.25)" stroke-width="0.8">
+                                <path d="M 200 30 A 170 170 0 0 1 370 200"/>
+                            </g>
                         </svg>
                     </div>
                 </div>
@@ -67,121 +160,186 @@
             </div>
         </section>
 
-        <!-- 2. Integrated Profile Summary Section -->
-        <section id="profile" class="canvas-section">
+        <!-- ============================================================
+             2. Professional Profile Section — Copper Wireframe
+             ============================================================ -->
+        <section id="profile" class="canvas-section" aria-labelledby="profile-heading">
             <div class="content-wrapper">
                 <div class="section-header">
                     <span class="section-tag">Executive Summary</span>
-                    <h2>Professional Profile</h2>
+                    <h2 id="profile-heading">Professional Profile</h2>
                 </div>
 
-                <div class="profile-card">
-                    <div class="profile-main-narrative">
-                        <p>
-                            With over six years of experience in IT, I am a results-oriented professional specialising in Enterprise and Solution Architecture within the public sector. My Master of Business Information Systems and strong technical experience in Cloud Infrastructure enable me to bridge the gap between high-level business strategy and practical solution design. I have a proven track record of streamlining operations, navigating complex governance workflows, and driving digital transformation through data-led migrations and stakeholder collaboration.
-                        </p>
-                        <p>
-                            Beyond my technical expertise, I am a <strong>"professional problem-solver and part-time storyteller"</strong> who balances spreadsheets and storyboards to bring extra fun to the everyday. I proudly maintain a dual professional identity, balancing my technical role as an Enterprise Architect with my creative outlet as host of the Sawasdee Australia Thai Radio show in Queensland.
-                        </p>
-                    </div>
-                    <div class="profile-side-stats">
-                        <div class="side-stat-item">
-                            <h3>AWS Solutions Architect</h3>
-                            <p>Associate Level (2024)</p>
-                            <span class="stat-credential">f82a85d4bcd94e92ab7e6d15fa53efa5</span>
-                        </div>
-                        <div class="side-stat-item">
-                            <h3>Azure Fundamentals</h3>
-                            <p>Microsoft Certified (2024)</p>
-                            <span class="stat-credential">41068CE4E3A10820</span>
-                        </div>
-                        <div class="side-stat-item">
-                            <h3>AWS Cloud Practitioner</h3>
-                            <p>Cloud Practitioner (2022)</p>
-                            <span class="stat-credential">NTCPF151YNF4QWGE</span>
+                <!-- Copper-wireframe framing wrapper -->
+                <div class="profile-wireframe">
+                    <div class="profile-card">
+                        <div class="profile-main-narrative">
+                            <p>
+                                With over six years of experience in IT, I am a results-oriented professional specialising in Enterprise and Solution Architecture within the public sector. My Master of Business Information Systems and strong technical experience in Cloud Infrastructure enable me to bridge the gap between high-level business strategy and practical solution design. I have a proven track record of streamlining operations, navigating complex governance workflows, and driving digital transformation through data-led migrations and stakeholder collaboration.
+                            </p>
+                            <p>
+                                Beyond my technical expertise, I am a <strong>"professional problem-solver and part-time storyteller"</strong> who balances spreadsheets and storyboards to bring extra fun to the everyday. I proudly maintain a dual professional identity, balancing my technical role as an Enterprise Architect with my creative outlet as host of the Sawasdee Australia Thai Radio show in Queensland.
+                            </p>
                         </div>
                     </div>
-
-                    
                 </div>
 
-                <!-- Technical Achievement Metrics Grid -->
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-num">6+</div>
+                <!-- ── Statistics Grid — Metal Plaques ── -->
+                <div class="metrics-grid" role="list">
+                    <div class="metric-card" role="listitem">
+                        <span class="metric-icon" aria-hidden="true">🏗️</span>
+                        <div class="metric-num" aria-label="6 plus">6+</div>
                         <div class="metric-label">Years of IT Experience</div>
-                        <div class="metric-desc">Specialising in Enterprise and Solution Architecture within public & private sectors.</div>
+                        <div class="metric-desc">Specialising in Enterprise and Solution Architecture within public &amp; private sectors.</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-num">30k+</div>
+                    <div class="metric-card" role="listitem">
+                        <span class="metric-icon" aria-hidden="true">☁️</span>
+                        <div class="metric-num" aria-label="30 thousand plus">30k+</div>
                         <div class="metric-label">M365 Users Migrated</div>
-                        <div class="metric-desc">Successfully migrated endpoint mail & apps from IBM Notes to M365 at KBTG.</div>
+                        <div class="metric-desc">Successfully migrated endpoint mail &amp; apps from IBM Notes to M365 at KBTG.</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-num">2x</div>
+                    <div class="metric-card" role="listitem">
+                        <span class="metric-icon" aria-hidden="true">🏆</span>
+                        <div class="metric-num" aria-label="2 times">2x</div>
                         <div class="metric-label">High Performer Awards</div>
                         <div class="metric-desc">Honoured consecutively for consistent project excellence and platform delivery at KBTG.</div>
                     </div>
-                    <div class="metric-card">
-                        <div class="metric-num">3x</div>
-                        <div class="metric-label">Active Cloud Credentials</div>
-                        <div class="metric-desc">AWS Certified Architect Associate, AWS Practitioner, and Azure Fundamentals.</div>
+                    <div class="metric-card" role="listitem">
+                        <span class="metric-icon" aria-hidden="true">📜</span>
+                        <div class="metric-num" aria-label="5 times">5x</div>
+                        <div class="metric-label">Professional Credentials</div>
+                        <div class="metric-desc">AWS &amp; Azure cloud certifications plus TOGAF Enterprise Architecture Foundation &amp; Practitioner frameworks.</div>
                     </div>
                 </div>
 
-                <!-- Education & Certifications Panels -->
+                <!-- ── Education & Detailed Credentials ── -->
                 <div class="education-cert-grid">
-                    
-                    <div class="info-panel">
+
+                    <!-- Education Panel — two mini-cards -->
+                    <div class="education-panel">
                         <h3>Education</h3>
-                        <ul class="info-list">
-                            <li class="info-item">
-                                <h4>Master of Business Information Systems (Graduated 2023)</h4>
-                                <p>Swinburne University of Technology, Melbourne, Australia</p>
-                            </li>
-                            <li class="info-item">
-                                <h4>Bachelor of Information Technology (Graduated 2015)</h4>
-                                <p>King Mongkut's University of Technology Thonburi, Bangkok, Thailand</p>
-                            </li>
-                        </ul>
+                        <div class="edu-cards-row">
+                            <div class="edu-mini-card">
+                                <div class="edu-icon-frame" aria-hidden="true">🎓</div>
+                                <div class="edu-card-text">
+                                    <span class="edu-degree">Master of Business Information Systems</span>
+                                    <h4>Swinburne University of Technology</h4>
+                                    <p>Melbourne, Australia &middot; Graduated 2023</p>
+                                </div>
+                            </div>
+                            <div class="edu-mini-card">
+                                <div class="edu-icon-frame" aria-hidden="true">🏛️</div>
+                                <div class="edu-card-text">
+                                    <span class="edu-degree">Bachelor of Information Technology</span>
+                                    <h4>King Mongkut's University of Technology Thonburi</h4>
+                                    <p>Bangkok, Thailand &middot; Graduated 2015</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="info-panel">
+                    <!-- Detailed Credentials — Display Plaques -->
+                    <div class="credentials-panel-full">
                         <h3>Professional Credentials</h3>
-                        <ul class="info-list">
-                            <li class="info-item">
-                                <h4>AWS Certified Solutions Architect – Associate (2024)</h4>
-                                <p>Amazon Web Services | Credential ID: f82a85d4bcd94e92ab7e6d15fa53efa5</p>
-                            </li>
-                            <li class="info-item">
-                                <h4>Microsoft Certified: Azure Fundamentals (2024)</h4>
-                                <p>Microsoft Azure | Credential ID: 41068CE4E3A10820</p>
-                            </li>
-                            <li class="info-item">
-                                <h4>AWS Certified Cloud Practitioner (2022)</h4>
-                                <p>Amazon Web Services | Credential ID: NTCPF151YNF4QWGE</p>
-                            </li>
-                        </ul>
+                        <div class="cert-badge-display-grid">
+
+                            <!-- AWS Solutions Architect -->
+                            <div class="cert-badge-plaque plaque-aws">
+                                <div class="cert-badge-img-wrap">
+                                    <img src="assets/badges/aws-certified-solutions-architect-associate.png"
+                                         alt="AWS Certified Solutions Architect – Associate" loading="lazy">
+                                </div>
+                                <div class="cert-badge-info">
+                                    <span class="cert-name">AWS Certified Solutions Architect – Associate</span>
+                                    <span class="cert-meta">Amazon Web Services &middot; 2024</span>
+                                </div>
+                                <span class="cred-view-btn" aria-hidden="true">Certified</span>
+                            </div>
+
+                            <!-- AWS Cloud Practitioner -->
+                            <div class="cert-badge-plaque plaque-aws">
+                                <div class="cert-badge-img-wrap">
+                                    <img src="assets/badges/aws-certified-cloud-practitioner.png"
+                                         alt="AWS Certified Cloud Practitioner" loading="lazy">
+                                </div>
+                                <div class="cert-badge-info">
+                                    <span class="cert-name">AWS Certified Cloud Practitioner</span>
+                                    <span class="cert-meta">Amazon Web Services &middot; 2022</span>
+                                </div>
+                                <span class="cred-view-btn" aria-hidden="true">Certified</span>
+                            </div>
+
+                            <!-- Azure Fundamentals -->
+                            <div class="cert-badge-plaque plaque-azure">
+                                <div class="cert-badge-img-wrap">
+                                    <img src="assets/badges/microsoft-certified-fundamentals-badge.svg"
+                                         alt="Microsoft Certified: Azure Fundamentals AZ-900" loading="lazy">
+                                </div>
+                                <div class="cert-badge-info">
+                                    <span class="cert-name">Microsoft Certified: Azure Fundamentals (AZ-900)</span>
+                                    <span class="cert-meta">Microsoft</span>
+                                </div>
+                                <span class="cred-view-btn" aria-hidden="true">Certified</span>
+                            </div>
+
+                            <!-- TOGAF Foundation -->
+                            <div class="cert-badge-plaque plaque-togaf">
+                                <div class="cert-badge-img-wrap">
+                                    <img src="assets/badges/the-open-group-certified-togaf-enterprise-architecture-foundation.png"
+                                         alt="TOGAF Enterprise Architecture Foundation" loading="lazy">
+                                </div>
+                                <div class="cert-badge-info">
+                                    <span class="cert-name">TOGAF EA Foundation</span>
+                                    <span class="cert-meta">The Open Group &middot; Jun 2026</span>
+                                </div>
+                                <a href="https://www.credly.com/badges/f6a95ded-8f04-4da0-9296-8231215c9a21/public_url"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="cred-view-btn" id="cred-togaf-foundation">
+                                    View ↗
+                                </a>
+                            </div>
+
+                            <!-- TOGAF Practitioner -->
+                            <div class="cert-badge-plaque plaque-togaf">
+                                <div class="cert-badge-img-wrap">
+                                    <img src="assets/badges/the-open-group-certified-togaf-enterprise-architecture-practitioner.png"
+                                         alt="TOGAF Enterprise Architecture Practitioner" loading="lazy">
+                                </div>
+                                <div class="cert-badge-info">
+                                    <span class="cert-name">TOGAF EA Practitioner</span>
+                                    <span class="cert-meta">The Open Group &middot; Jun 2026</span>
+                                </div>
+                                <a href="https://www.credly.com/badges/34896423-a4bb-489e-bfa0-ecb5798ce639/public_url"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="cred-view-btn" id="cred-togaf-practitioner">
+                                    View ↗
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
-                </div> <!-- Closes .education-cert-grid -->
-            </div> <!-- Closes .content-wrapper -->
+
+                </div><!-- /education-cert-grid -->
+            </div><!-- /content-wrapper -->
         </section>
 
-        <!-- 4. Mode B Section: Creative & Broadcast Spotlight -->
-        <section id="creative" class="canvas-section">
+        <!-- ============================================================
+             3. Broadcast Studio — Audio Analyzer
+             ============================================================ -->
+        <section id="creative" class="canvas-section" aria-labelledby="broadcast-heading">
             <div class="content-wrapper">
                 <div class="section-header">
                     <span class="section-tag">Broadcast Studio</span>
-                    <h2>Sawasdee Australia Thai Radio</h2>
+                    <h2 id="broadcast-heading">Sawasdee Australia Thai Radio</h2>
                 </div>
 
                 <div class="storyteller-deck">
 
-                    <!-- Live Radio Countdown Tracker -->
-                    <div class="media-panel">
+                    <!-- Broadcast Tracker — OLED Digital Display -->
+                    <div class="media-panel" id="broadcast-panel">
                         <div>
                             <div class="broadcast-status-badge" id="broadcast-badge">
-                                <span class="sim-glow-dot"></span>
+                                <span class="sim-glow-dot" aria-hidden="true"></span>
                                 <span id="broadcast-status-text">OFF AIR</span>
                             </div>
                             <h3>4EB FM 98.1 Broadcast Tracker</h3>
@@ -190,54 +348,82 @@
                             </p>
                         </div>
                         <div>
-                            <div class="countdown-timer-display" id="broadcast-timer">
-                                <div class="time-unit"><span id="days">00</span><span>days</span></div>
-                                <div class="time-unit"><span id="hours">00</span><span>hours</span></div>
-                                <div class="time-unit"><span id="minutes">00</span><span>minutes</span></div>
+                            <div class="countdown-timer-display" id="broadcast-timer" aria-label="Countdown to next broadcast">
+                                <div class="time-unit">
+                                    <span id="days">00</span>
+                                    <span>days</span>
+                                </div>
+                                <span class="time-separator" aria-hidden="true">:</span>
+                                <div class="time-unit">
+                                    <span id="hours">00</span>
+                                    <span>hrs</span>
+                                </div>
+                                <span class="time-separator" aria-hidden="true">:</span>
+                                <div class="time-unit">
+                                    <span id="minutes">00</span>
+                                    <span>min</span>
+                                </div>
                             </div>
-                            <a href="https://www.4eb.org.au" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-full-width">
+                            <a href="https://www.4eb.org.au" target="_blank" rel="noopener noreferrer"
+                               class="btn btn-secondary btn-full-width" id="btn-station">
                                 Visit Station Website
                             </a>
                         </div>
                     </div>
 
-                    <!-- On-Demand Show Hub Card -->
+                    <!-- Show Vault — Audio Analyzer + Archive -->
                     <div class="media-panel archive-panel">
                         <div>
-                            <span class="section-tag tag-secondary">Show Vault & On-Demand</span>
+                            <span class="section-tag tag-secondary">Show Vault &amp; On-Demand</span>
                             <h3>Sawasdee Australia Archive</h3>
                             <p class="panel-desc">
                                 Missed a live broadcast? Catch up on previous episodes, community interviews, and cross-cultural highlights from anywhere in the world.
                             </p>
-                            
-                            <!-- Ambient CSS Waveform Visualiser (Hover Triggered in CSS) -->
-                            <div class="ambient-soundwave">
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
-                                <span class="wave-bar"></span>
+
+                            <!-- Multi-frequency audio analyzer display -->
+                            <div class="audio-analyzer-display" aria-hidden="true">
+                                <div class="ambient-soundwave" id="audio-analyzer">
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                    <span class="wave-bar"></span>
+                                </div>
+                                <div class="freq-labels" aria-hidden="true">
+                                    <span>20Hz</span>
+                                    <span>Lo</span>
+                                    <span>Mid</span>
+                                    <span>Hi</span>
+                                    <span>20kHz</span>
+                                </div>
                             </div>
 
-                            <!-- Curated content tags -->
                             <div class="show-tags-wrapper">
                                 <span class="show-tag-capsule">Community Spotlight</span>
-                                <span class="show-tag-capsule">Music & Culture</span>
+                                <span class="show-tag-capsule">Music &amp; Culture</span>
                             </div>
                         </div>
                         <div class="btn-group">
-                            <a href="https://www.4eb.org.au/shows/sawasdee-australia-thai-radio/" target="_blank" rel="noopener noreferrer" class="btn btn-primary archive-btn">
-                                Explore Previous Shows <span class="arrow-indicator">➔</span>
+                            <a href="https://www.4eb.org.au/shows/sawasdee-australia-thai-radio/"
+                               target="_blank" rel="noopener noreferrer"
+                               class="btn btn-primary archive-btn" id="btn-archive">
+                                Explore Previous Shows <span class="arrow-indicator" aria-hidden="true">➔</span>
                             </a>
-                            <a href="https://www.facebook.com/sawasdeeausthairadioinqld" target="_blank" rel="noopener noreferrer" class="btn btn-secondary facebook-show-btn">
-                                <span class="fb-icon">👥</span> Facebook Page
+                            <a href="https://www.facebook.com/sawasdeeausthairadioinqld"
+                               target="_blank" rel="noopener noreferrer"
+                               class="btn btn-secondary facebook-show-btn" id="btn-facebook-show">
+                                <span class="fb-icon" aria-hidden="true">👥</span> Facebook Page
                             </a>
                         </div>
                     </div>
@@ -246,76 +432,86 @@
             </div>
         </section>
 
-        <!-- 5. Dual-Perspective Interactive Timeline -->
-        <section id="timeline" class="canvas-section">
+        <!-- ============================================================
+             4. Career & Creative Timeline — Glowing Copper Spine
+             ============================================================ -->
+        <section id="timeline" class="canvas-section" aria-labelledby="timeline-heading">
             <div class="content-wrapper">
                 <div class="section-header center-align">
                     <span class="section-tag">Interactive Journey</span>
-                    <h2>Career & Creative Timeline</h2>
+                    <h2 id="timeline-heading">Career &amp; Creative Timeline</h2>
                 </div>
 
-                <!-- Timeline Nodes container -->
-                <div class="timeline-container" id="interactive-timeline-box">
-                    <!-- Javascript will inject the timeline items here -->
+                <!-- Timeline nodes — injected by script.js -->
+                <div class="timeline-container" id="interactive-timeline-box" role="list" aria-label="Career timeline">
                 </div>
-
             </div>
         </section>
 
-        <!-- 6. Connect Hub Section -->
-        <section id="connect" class="canvas-section">
+        <!-- ============================================================
+             5. Connect Hub — Premium Contact Plates
+             ============================================================ -->
+        <section id="connect" class="canvas-section" aria-labelledby="connect-heading">
             <div class="content-wrapper">
                 <div class="section-header center-align">
-                    <span class="section-tag">Social & Professional Network</span>
-                    <h2>Connect Hub</h2>
+                    <span class="section-tag">Social &amp; Professional Network</span>
+                    <h2 id="connect-heading">Connect Hub</h2>
                 </div>
 
                 <div class="smart-connect-panel">
                     <div class="social-grid">
-                        <a href="#" class="social-card email secure-email-link" data-encoded-email="cG9uZ3Nha29ybi55QG91dGxvb2suY29t" title="Click to send email">
-                            <span class="social-icon-wrapper">📧</span>
+                        <a href="#" class="social-card email secure-email-link"
+                           data-encoded-email="cG9uZ3Nha29ybi55QG91dGxvb2suY29t"
+                           title="Click to send email" id="social-email">
+                            <span class="social-icon-wrapper" aria-hidden="true">📧</span>
                             <div class="social-card-info">
                                 <h3>Email</h3>
                                 <p class="secure-email-text">pongsakorn.y [at] outlook.com</p>
                             </div>
                         </a>
-                        <a href="https://www.linkedin.com/in/sevenpsk/" target="_blank" rel="noopener noreferrer" class="social-card linkedin">
-                            <span class="social-icon-wrapper">🔗</span>
+                        <a href="https://www.linkedin.com/in/sevenpsk/" target="_blank" rel="noopener noreferrer"
+                           class="social-card linkedin" id="social-linkedin">
+                            <span class="social-icon-wrapper" aria-hidden="true">🔗</span>
                             <div class="social-card-info">
                                 <h3>LinkedIn</h3>
                                 <p>/in/sevenpsk</p>
                             </div>
                         </a>
-                        <a href="https://github.com/sevenpsk/" target="_blank" rel="noopener noreferrer" class="social-card github">
-                            <span class="social-icon-wrapper">💻</span>
+                        <a href="https://github.com/sevenpsk/" target="_blank" rel="noopener noreferrer"
+                           class="social-card github" id="social-github">
+                            <span class="social-icon-wrapper" aria-hidden="true">💻</span>
                             <div class="social-card-info">
                                 <h3>GitHub</h3>
                                 <p>/sevenpsk</p>
                             </div>
                         </a>
-                        <a href="https://www.youtube.com/@sevenpsk" target="_blank" rel="noopener noreferrer" class="social-card youtube">
-                            <span class="social-icon-wrapper">📺</span>
+                        <a href="https://www.youtube.com/@sevenpsk" target="_blank" rel="noopener noreferrer"
+                           class="social-card youtube" id="social-youtube">
+                            <span class="social-icon-wrapper" aria-hidden="true">📺</span>
                             <div class="social-card-info">
                                 <h3>YouTube</h3>
                                 <p>@sevenpsk</p>
                             </div>
                         </a>
-                        <a href="https://www.tiktok.com/@sevenpsk" target="_blank" rel="noopener noreferrer" class="social-card tiktok">
-                            <span class="social-icon-wrapper">🎵</span>
+                        <a href="https://www.tiktok.com/@sevenpsk" target="_blank" rel="noopener noreferrer"
+                           class="social-card tiktok" id="social-tiktok">
+                            <span class="social-icon-wrapper" aria-hidden="true">🎵</span>
                             <div class="social-card-info">
                                 <h3>TikTok</h3>
                                 <p>@sevenpsk</p>
                             </div>
                         </a>
-                        <a href="https://www.instagram.com/sevenpsk" target="_blank" rel="noopener noreferrer" class="social-card instagram">
-                            <span class="social-icon-wrapper">📸</span>
+                        <a href="https://www.instagram.com/sevenpsk" target="_blank" rel="noopener noreferrer"
+                           class="social-card instagram" id="social-instagram">
+                            <span class="social-icon-wrapper" aria-hidden="true">📸</span>
                             <div class="social-card-info">
                                 <h3>Instagram</h3>
                                 <p>@sevenpsk</p>
                             </div>
                         </a>
-                        <a href="https://www.facebook.com/sevenpsk" target="_blank" rel="noopener noreferrer" class="social-card facebook">
-                            <span class="social-icon-wrapper">👤</span>
+                        <a href="https://www.facebook.com/sevenpsk" target="_blank" rel="noopener noreferrer"
+                           class="social-card facebook" id="social-facebook">
+                            <span class="social-icon-wrapper" aria-hidden="true">👤</span>
                             <div class="social-card-info">
                                 <h3>Facebook</h3>
                                 <p>sevenpsk</p>

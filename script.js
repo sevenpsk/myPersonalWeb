@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 listItems += `<li>${bullet}</li>`;
             });
 
+            eventDiv.setAttribute('role', 'listitem');
             eventDiv.innerHTML = `
                 <div class="timeline-header">
                     <span class="timeline-date">${item.date}</span>
@@ -183,9 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isLive) {
             badge.classList.add('on-air');
             badgeText.textContent = "ON AIR NOW";
-            daysEl.textContent = "00";
-            hoursEl.textContent = "00";
-            minsEl.textContent = "00";
+            daysEl.textContent = "🔴";
+            hoursEl.textContent = "LIVE";
+            minsEl.textContent = "NOW";
             return;
         }
 
